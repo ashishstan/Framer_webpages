@@ -71,8 +71,7 @@ footer{margin:60px auto 0;border-top:1px solid var(--line);padding:24px 20px 50p
 <div class="panel"><div class="ph"><span>// ARCHIVE VIEWER</span><a class="x" href="https://ashishjkmr.framer.website/">[ X // CLOSE ]</a></div>
 <div class="two"><div>
 <div class="frame" id="fin"><div class="hud" id="hud">VIEW // BEAUTY</div></div>
-<div class="seg"><button id="mC" class="on">REFERENCE</button><button id="mW">WIREFRAME</button></div>
-<button id="hold">HOLD // SEE REFERENCE<small>touch and hold to peek</small></button></div>
+<button id="hold">HOLD // SCAN WIREFRAME<small>touch and hold to peek</small></button></div>
 <div class="info"><h1>Kitchen Kylo</h1>
 <div class="meta"><b>STAR WARS INSPIRED KITCHEN</b><span>// ROLE: 3D ARTIST</span><span>// THEME: IMPERIAL INTERIORS + LIGHTING</span></div>
 <p class="l">From a warm reference kitchen to an imperial one.</p>
@@ -117,10 +116,7 @@ rs();if(!RM)(function L(t){if(t-last>(W<700?40:16)){draw(t);last=t}requestAnimat
 // final viewer
 const fin=$('fin');mk(fin,[src('wire'),src('st0'),src('st4')]);
 const ci=fin.children[1],wi=fin.children[2];wi.classList.add('ov');ci.classList.add('ov');
-let mode='C';const D={C:[ci,'REFERENCE'],W:[wi,'WIREFRAME']};
-function setMode(m){mode=m;$('mC').classList.toggle('on',m=='C');$('mW').classList.toggle('on',m=='W');$('hold').firstChild.textContent='HOLD // SEE '+D[m][1];buzz(8)}
-$('mC').onclick=()=>setMode('C');$('mW').onclick=()=>setMode('W');
-const hb=$('hold');let cur=null;
+let mode='W';const D={W:[wi,'WIREFRAME']}; const hb=$('hold');let cur=null;
 function on(e){e.preventDefault();cur=D[mode][0];cur.classList.add('show');hb.classList.add('down');$('hud').textContent='VIEW // '+D[mode][1];buzz(15)}
 function off(){if(cur){cur.classList.remove('show');cur=null}hb.classList.remove('down');$('hud').textContent='VIEW // BEAUTY'}
 hb.addEventListener('pointerdown',on);['pointerup','pointercancel','pointerleave'].forEach(k=>hb.addEventListener(k,off));hb.addEventListener('contextmenu',e=>e.preventDefault());
